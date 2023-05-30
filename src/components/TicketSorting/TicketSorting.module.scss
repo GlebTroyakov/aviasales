@@ -1,0 +1,50 @@
+.ticketSorting {
+  box-sizing: border-box;
+  position: relative;
+  height: 50px;
+  width: 502px;
+  left: 125px;
+  top: 160px;
+  border-radius: 5px;
+  background-color: #2196f3;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.button {
+  width: 168px;
+  height: 50px;
+  border: none;
+  border-top: solid 1px #dfe5ec;
+  border-bottom: solid 1px #dfe5ec;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.button:hover,
+.button-first:hover,
+.button-last:hover {
+  background-color: #2196f3;
+  border: #2196f3;
+  color: #ffffff;
+}
+
+.button-first {
+  width: 168px;
+  height: 50px;
+  border: solid 1px #dfe5ec;
+  outline: none;
+  background-color: #ffffff;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.button-last {
+  width: 168px;
+  height: 50px;
+  border: solid 1px #dfe5ec;
+  outline: none;
+  background-color: #ffffff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

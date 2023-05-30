@@ -7,7 +7,7 @@ export function App() {
     <div className="App">
       <img
         className="logo"
-        ref="../../images/Logo-2.png"
+        src="../../images/Logo-2.png"
         alt="logoAviasales"
       ></img>
       <Content />
