@@ -1,6 +1,7 @@
 .content {
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
+  margin: 0 100px;
+  display: grid;
+  grid-template-columns: 232px 502px;
+  gap: 20px;
 }

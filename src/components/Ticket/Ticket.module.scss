@@ -1,10 +1,11 @@
+@import "../../styles/colors.scss";
+
 .ticket {
   box-sizing: border-box;
-  position: relative;
   height: 184px;
   width: 502px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: $back-white;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -20,7 +21,7 @@
 
 .ticket-price {
   font-size: 20px;
-  color: #2196f3;
+  color: $main-blue;
   font-weight: 900;
 }
 
@@ -31,14 +32,14 @@
 }
 
 .up-cell {
-  color: #a0b0b9;
+  color: $light-text;
   font-size: 12px;
   font-weight: 500;
   padding: 0 5px;
 }
 
 .down-cell {
-  color: #4a4a4a;
+  color: $dark-text;
   font-weight: 600;
   font-size: 14px;
   padding: 0 5px;

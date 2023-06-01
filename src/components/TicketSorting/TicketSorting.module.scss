@@ -1,13 +1,14 @@
+@import "../../styles/colors.scss";
+
 .ticket-sorting {
   box-sizing: border-box;
-  position: relative;
   height: 50px;
   min-width: 502px;
-  left: 120px;
   display: flex;
   flex-wrap: nowrap;
   line-height: 18px;
   letter-spacing: 0.5px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     display: flex;
@@ -32,24 +33,26 @@
       padding: 15px;
       height: 100%;
       box-sizing: border-box;
-      border-top: solid 1px #dfe5ec;
-      border-bottom: solid 1px #dfe5ec;
-      background-color: #ffffff;
+      border-top: solid 1px $border;
+      border-bottom: solid 1px $border;
+      background-color: $back-white;
       font-size: 12px;
+      font-weight: 900;
+      color: $dark-text;
       text-align: center;
       cursor: pointer;
     }
 
     .transfer-sorting_checkbox:checked + label {
-      background-color: #2196f3;
-      border: #2196f3;
-      color: #ffffff;
+      background-color: $main-blue;
+      border: $main-blue;
+      color: $back-white;
     }
 
     .transfer-sorting_checkbox:hover + label {
-      background-color: #78bbf1;
-      border: #78bbf1;
-      color: #ffffff;
+      background-color: $hover-blue;
+      border: $hover-blue;
+      color: $back-white;
     }
 
     .ticket-sorting_label__left {
@@ -58,11 +61,13 @@
       padding: 15px;
       height: 100%;
       box-sizing: border-box;
-      border: solid 1px #dfe5ec;
+      border: solid 1px $border;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
-      background-color: #ffffff;
+      background-color: $back-white;
       font-size: 12px;
+      font-weight: 900;
+      color: $dark-text;
       text-align: center;
       cursor: pointer;
     }
@@ -73,11 +78,13 @@
       padding: 15px;
       height: 100%;
       box-sizing: border-box;
-      border: solid 1px #dfe5ec;
+      border: solid 1px $border;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-      background-color: #ffffff;
+      background-color: $back-white;
       font-size: 12px;
+      font-weight: 900;
+      color: $dark-text;
       text-align: center;
       cursor: pointer;
     }

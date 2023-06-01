@@ -1,3 +1,7 @@
+import classes from "./ShowMore.module.scss";
+
 export function ShowMore() {
-  return <div className="showMore"></div>;
+  return (
+    <button className={classes["show-more"]}>ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ!</button>
+  );
 }

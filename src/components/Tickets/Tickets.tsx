@@ -1,3 +1,4 @@
+import { ShowMore } from "../ShowMore";
 import { Ticket } from "../Ticket/Ticket";
 import classes from "./Tickets.module.scss";
 
@@ -44,5 +45,10 @@ export function Tickets() {
     />,
   ];
 
-  return <div className={classes.tickets}>{tickets}</div>;
+  return (
+    <div className={classes.tickets}>
+      {tickets}
+      <ShowMore />
+    </div>
+  );
 }

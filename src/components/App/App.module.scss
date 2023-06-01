@@ -1,10 +1,12 @@
+@import "../../styles/colors.scss";
+
 .app {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
   width: 950px;
   min-height: 100vh;
-  background-color: #f3f7fa;
+  background-color: $back-blue;
 }
 
 .app-logo {
