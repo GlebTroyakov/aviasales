@@ -2,6 +2,16 @@
   box-sizing: border-box;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 232px 502px;
+  grid-template-columns: 502px;
   gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 232px 502px;
+    gap: 20px;
+  }
 }
