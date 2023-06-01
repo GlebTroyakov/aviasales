@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 .ticket-sorting {
   box-sizing: border-box;
@@ -9,6 +9,7 @@
   line-height: 18px;
   letter-spacing: 0.5px;
   margin-bottom: 20px;
+  box-shadow: 0 0 6px $shadow;
 
   @media (min-width: 768px) {
     display: flex;

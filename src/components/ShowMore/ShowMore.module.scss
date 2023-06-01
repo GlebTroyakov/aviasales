@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 .show-more {
   box-sizing: border-box;
@@ -15,6 +15,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  box-shadow: 0 0 6px $shadow;
 }
 
 .show-more:hover {
