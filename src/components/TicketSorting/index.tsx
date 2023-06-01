@@ -1,3 +1,3 @@
-import { TicketSorting } from "./TicketSorting";
+import { TicketSorting } from './TicketSorting'
 
-export { TicketSorting };
+export { TicketSorting }

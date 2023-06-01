@@ -1,3 +1,3 @@
-import { Tickets } from "./Tickets";
+import { Tickets } from './Tickets'
 
-export { Tickets };
+export { Tickets }

@@ -1,9 +1,10 @@
-import React from "react";
-import { TransferFilter } from "../TransferFilter";
-import { TicketSorting } from "../TicketSorting";
-import { Tickets } from "../Tickets";
+import React from 'react'
 
-import classes from "./Content.module.scss";
+import { TransferFilter } from '../TransferFilter'
+import { TicketSorting } from '../TicketSorting'
+import { Tickets } from '../Tickets'
+
+import classes from './Content.module.scss'
 
 export function Content() {
   return (
@@ -14,5 +15,5 @@ export function Content() {
         <Tickets />
       </div>
     </div>
-  );
+  )
 }

@@ -1,3 +1,3 @@
-import { ShowMore } from "./ShowMore";
+import { ShowMore } from './ShowMore'
 
-export { ShowMore };
+export { ShowMore }
