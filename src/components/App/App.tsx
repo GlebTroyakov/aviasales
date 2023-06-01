@@ -1,15 +1,12 @@
 import React from "react";
-import "./App.css";
+import classes from "./App.module.scss";
+import logo from "../../images/Logo-2.png";
 import { Content } from "../Content";
 
 export function App() {
   return (
-    <div className="App">
-      <img
-        className="logo"
-        src="../../images/Logo-2.png"
-        alt="logoAviasales"
-      ></img>
+    <div className={classes.app}>
+      <img className={classes["app-logo"]} src={logo} alt="logo"></img>
       <Content />
     </div>
   );
