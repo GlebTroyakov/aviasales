@@ -1,12 +1,13 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 .app {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0;
   width: 950px;
   min-height: 100vh;
   background-color: $back-blue;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-logo {
