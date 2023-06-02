@@ -11,83 +11,81 @@
   margin-bottom: 20px;
   box-shadow: 0 0 6px $shadow;
 
-  @media (min-width: 768px) {
+  display: flex;
+  justify-content: center;
+
+  .ticket-sorting_ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
     display: flex;
-    justify-content: center;
+  }
 
-    .ticket-sorting_ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      width: 100%;
-      display: flex;
-    }
+  .ticket-sorting_li {
+    min-width: 168px;
+    min-height: 50px;
+  }
 
-    .ticket-sorting_li {
-      min-width: 168px;
-      min-height: 50px;
-    }
+  .ticket-sorting_label {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    border-top: solid 1px $border;
+    border-bottom: solid 1px $border;
+    background-color: $back-white;
+    font-size: 12px;
+    font-weight: 900;
+    color: $dark-text;
+    text-align: center;
+    cursor: pointer;
+  }
 
-    .ticket-sorting_label {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      height: 100%;
-      box-sizing: border-box;
-      border-top: solid 1px $border;
-      border-bottom: solid 1px $border;
-      background-color: $back-white;
-      font-size: 12px;
-      font-weight: 900;
-      color: $dark-text;
-      text-align: center;
-      cursor: pointer;
-    }
+  .transfer-sorting_checkbox:checked + label {
+    background-color: $main-blue;
+    border: $main-blue;
+    color: $back-white;
+  }
 
-    .transfer-sorting_checkbox:checked + label {
-      background-color: $main-blue;
-      border: $main-blue;
-      color: $back-white;
-    }
+  .transfer-sorting_checkbox:hover + label {
+    background-color: $hover-blue;
+    border: $hover-blue;
+    color: $back-white;
+  }
 
-    .transfer-sorting_checkbox:hover + label {
-      background-color: $hover-blue;
-      border: $hover-blue;
-      color: $back-white;
-    }
+  .ticket-sorting_label__left {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    border: solid 1px $border;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: $back-white;
+    font-size: 12px;
+    font-weight: 900;
+    color: $dark-text;
+    text-align: center;
+    cursor: pointer;
+  }
 
-    .ticket-sorting_label__left {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      height: 100%;
-      box-sizing: border-box;
-      border: solid 1px $border;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      background-color: $back-white;
-      font-size: 12px;
-      font-weight: 900;
-      color: $dark-text;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .ticket-sorting_label__right {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      height: 100%;
-      box-sizing: border-box;
-      border: solid 1px $border;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      background-color: $back-white;
-      font-size: 12px;
-      font-weight: 900;
-      color: $dark-text;
-      text-align: center;
-      cursor: pointer;
-    }
+  .ticket-sorting_label__right {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    border: solid 1px $border;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: $back-white;
+    font-size: 12px;
+    font-weight: 900;
+    color: $dark-text;
+    text-align: center;
+    cursor: pointer;
   }
 }
