@@ -25,7 +25,12 @@ export const transferFilterReducer = (state = initialState, action: IAction) => 
         }
         return { ...state, countTransfers: newCountTransfer.filter((item) => item !== 'no') }
       }
-      return { ...state, countTransfers: [...state.countTransfers, 'no'] }
+      if (state.countTransfers.length === 3) {
+        newCountTransfer = [...state.countTransfers, 'all']
+      } else {
+        newCountTransfer = [...state.countTransfers]
+      }
+      return { ...state, countTransfers: [...newCountTransfer, 'no'] }
 
     case ONE_TRANSFER:
       if (state.countTransfers.indexOf('one') !== -1) {
@@ -36,7 +41,12 @@ export const transferFilterReducer = (state = initialState, action: IAction) => 
         }
         return { ...state, countTransfers: newCountTransfer.filter((item) => item !== 'one') }
       }
-      return { ...state, countTransfers: [...state.countTransfers, 'one'] }
+      if (state.countTransfers.length === 3) {
+        newCountTransfer = [...state.countTransfers, 'all']
+      } else {
+        newCountTransfer = [...state.countTransfers]
+      }
+      return { ...state, countTransfers: [...newCountTransfer, 'one'] }
 
     case TWO_TRANSFER:
       if (state.countTransfers.indexOf('two') !== -1) {
@@ -47,7 +57,12 @@ export const transferFilterReducer = (state = initialState, action: IAction) => 
         }
         return { ...state, countTransfers: newCountTransfer.filter((item) => item !== 'two') }
       }
-      return { ...state, countTransfers: [...state.countTransfers, 'two'] }
+      if (state.countTransfers.length === 3) {
+        newCountTransfer = [...state.countTransfers, 'all']
+      } else {
+        newCountTransfer = [...state.countTransfers]
+      }
+      return { ...state, countTransfers: [...newCountTransfer, 'two'] }
 
     case THREE_TRANSFER:
       if (state.countTransfers.indexOf('three') !== -1) {
@@ -58,7 +73,12 @@ export const transferFilterReducer = (state = initialState, action: IAction) => 
         }
         return { ...state, countTransfers: newCountTransfer.filter((item) => item !== 'three') }
       }
-      return { ...state, countTransfers: [...state.countTransfers, 'three'] }
+      if (state.countTransfers.length === 3) {
+        newCountTransfer = [...state.countTransfers, 'all']
+      } else {
+        newCountTransfer = [...state.countTransfers]
+      }
+      return { ...state, countTransfers: [...newCountTransfer, 'three'] }
 
     default:
       return state
