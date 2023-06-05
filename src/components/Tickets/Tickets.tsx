@@ -19,30 +19,35 @@ export function Tickets() {
       logo={ticketsTampltates[0].logo}
       forward={ticketsTampltates[0].forward}
       back={ticketsTampltates[0].back}
+      key={1}
     />,
     <Ticket
       price={ticketsTampltates[0].price}
       logo={ticketsTampltates[0].logo}
       forward={ticketsTampltates[0].forward}
       back={ticketsTampltates[0].back}
+      key={2}
     />,
     <Ticket
       price={ticketsTampltates[0].price}
       logo={ticketsTampltates[0].logo}
       forward={ticketsTampltates[0].forward}
       back={ticketsTampltates[0].back}
+      key={3}
     />,
     <Ticket
       price={ticketsTampltates[0].price}
       logo={ticketsTampltates[0].logo}
       forward={ticketsTampltates[0].forward}
       back={ticketsTampltates[0].back}
+      key={4}
     />,
     <Ticket
       price={ticketsTampltates[0].price}
       logo={ticketsTampltates[0].logo}
       forward={ticketsTampltates[0].forward}
       back={ticketsTampltates[0].back}
+      key={5}
     />,
   ]
 
