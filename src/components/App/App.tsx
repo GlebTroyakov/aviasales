@@ -1,15 +1,19 @@
 import React from 'react'
+import { Provider } from 'react-redux'
 
 import logo from '../../images/Logo-2.png'
 import { Content } from '../Content'
+import { store } from '../../redux/store/index'
 
 import classes from './App.module.scss'
 
 export function App() {
   return (
-    <div className={classes.app}>
-      <img className={classes['app-logo']} src={logo} alt="logo"></img>
-      <Content />
-    </div>
+    <Provider store={store}>
+      <div className={classes.app}>
+        <img className={classes['app-logo']} src={logo} alt="logo"></img>
+        <Content />
+      </div>
+    </Provider>
   )
 }

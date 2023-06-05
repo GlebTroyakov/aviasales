@@ -1,6 +1,15 @@
+import { useSelector, useDispatch } from 'react-redux'
+
+import { cheapest, fastest, optimal } from '../../redux/actions/ticketSortingActions'
+import { ITicketSortingState } from '../../models'
+
 import classes from './TicketSorting.module.scss'
 
 export function TicketSorting() {
+  const selectedParameter = useSelector((state: ITicketSortingState) => state.ticketSortingReducer.parameterTicket)
+
+  const dispatch = useDispatch()
+
   return (
     <div className={classes['ticket-sorting']}>
       <ul className={classes['ticket-sorting_ul']}>
@@ -12,6 +21,8 @@ export function TicketSorting() {
             id="cheapest"
             className={classes['transfer-sorting_checkbox']}
             hidden
+            onChange={() => dispatch(cheapest())}
+            checked={selectedParameter === 'cheapest'}
           ></input>
           <label htmlFor="cheapest" className={classes['ticket-sorting_label__left']}>
             САМЫЙ ДЕШЕВЫЙ
@@ -26,6 +37,8 @@ export function TicketSorting() {
             id="fastest"
             className={classes['transfer-sorting_checkbox']}
             hidden
+            onChange={() => dispatch(fastest())}
+            checked={selectedParameter === 'fastest'}
           ></input>
           <label htmlFor="fastest" className={classes['ticket-sorting_label']}>
             САМЫЙ БЫСТРЫЙ
@@ -39,15 +52,14 @@ export function TicketSorting() {
             id="optimal"
             className={classes['transfer-sorting_checkbox']}
             hidden
+            onChange={() => dispatch(optimal())}
+            checked={selectedParameter === 'optimal'}
           ></input>
           <label htmlFor="optimal" className={classes['ticket-sorting_label__right']}>
             ОПТИМАЛЬНЫЙ
           </label>
         </li>
       </ul>
-      {/* <button className={`${classes["button-first"]}`}>САМЫЙ ДЕШЕВЫЙ</button>
-      <button className={classes.button}>САМЫЙ БЫСТРЫЙ</button>
-      <button className={`${classes["button-last"]}`}>ОПТИМАЛЬНЫЙ</button> */}
     </div>
   )
 }
