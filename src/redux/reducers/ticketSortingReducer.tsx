@@ -1,12 +1,11 @@
-import { IAction } from '../../models'
+import { IAction, ITicketSortingState } from '../../models'
 import { CHEAPEST, FASTEST, OPTIMAL } from '../types/ticketSortingTypes'
 
-const initialState = {
+const initialState: ITicketSortingState = {
   parameterTicket: 'cheapest',
 }
 
-// eslint-disable-next-line @typescript-eslint/default-param-last
-export const ticketSortingReducer = (state = initialState, action: IAction) => {
+export const ticketSortingReducer = (state = initialState, action: IAction): ITicketSortingState => {
   switch (action.type) {
     case CHEAPEST:
       return { ...state, parameterTicket: 'cheapest' }

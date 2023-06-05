@@ -1,12 +1,11 @@
-import { IAction } from '../../models'
+import { IAction, ITransferFilterState } from '../../models'
 import { ALL_TRANSFER, NO_TRANSFER, ONE_TRANSFER, TWO_TRANSFER, THREE_TRANSFER } from '../types/transferFilterTypes'
 
-const initialState = {
+const initialState: ITransferFilterState = {
   countTransfers: ['no'],
 }
 
-// eslint-disable-next-line @typescript-eslint/default-param-last
-export const transferFilterReducer = (state = initialState, action: IAction) => {
+export const transferFilterReducer = (state = initialState, action: IAction): ITransferFilterState => {
   let newCountTransfer: [] | string[]
 
   switch (action.type) {
