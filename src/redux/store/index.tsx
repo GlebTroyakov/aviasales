@@ -6,4 +6,6 @@ import { TicketServices } from '../../services/TicketServices'
 
 export const store = createStore(rootReducer, applyMiddleware(reduxThunk))
 
-TicketServices().getSearchId()
+const res = TicketServices().getSearchId()
+// console.log(res)
+res.then((results) => console.log('res', results))

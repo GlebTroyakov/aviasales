@@ -13,9 +13,9 @@ export const TicketServices = function () {
 
       const result = await response.json()
 
-      console.log(result.tickets[0])
+      return { tickets: result, error: null }
     } catch (err: any) {
-      console.log(err)
+      return { result: [], error: err }
     }
   }
 
@@ -27,11 +27,12 @@ export const TicketServices = function () {
         throw new Error('Could not fetch.')
       }
 
-      const result = await response.json()
-      const searchId = result.searchId
-      await fetchResponse(urlGetTicketsBase, searchId)
+      const responseSearchId = await response.json()
+
+      const results = await fetchResponse(urlGetTicketsBase, responseSearchId.searchId)
+      return results
     } catch (err: any) {
-      console.log(err)
+      return { result: [], error: err }
     }
   }
 
