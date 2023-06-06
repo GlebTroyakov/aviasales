@@ -1,11 +1,11 @@
-import { IAction, ITransferFilterState } from '../../models'
+import { ITransferFilterAction, ITransferFilterState } from '../../models'
 import { ALL_TRANSFER, NO_TRANSFER, ONE_TRANSFER, TWO_TRANSFER, THREE_TRANSFER } from '../types/transferFilterTypes'
 
 const initialState: ITransferFilterState = {
   countTransfers: ['no'],
 }
 
-export const transferFilterReducer = (state = initialState, action: IAction): ITransferFilterState => {
+export const transferFilterReducer = (state = initialState, action: ITransferFilterAction): ITransferFilterState => {
   let newCountTransfer: [] | string[]
 
   switch (action.type) {
