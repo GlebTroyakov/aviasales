@@ -39,12 +39,18 @@ export function Ticket({ carrier, price, segments }: ITicket) {
     )}:${doneArrivalMinutes}`
   }
 
+  function getPriceInFormat(rub: number): string {
+    const thousands = Math.floor(rub / 1000)
+    const rubles = rub % 1000 > 99 ? rub % 1000 : `0${rub % 1000}`
+    return `${thousands} ${rubles} P`
+  }
+
   const transfer = ['БЕЗ ПЕРЕСАДОК', '1 ПЕРЕСАДКА', '2 ПЕРЕСАДКИ', '3 ПЕРЕСАДКИ']
 
   return (
     <div className={classes.ticket}>
       <div className={classes['ticket-header']}>
-        <span className={classes['ticket-price']}>{`${price} Р`}</span>
+        <span className={classes['ticket-price']}>{getPriceInFormat(price)}</span>
         <img src={`${urlImage}${carrier}.png`} alt="logo" width="100px" />
       </div>
       <div className={classes['ticket-info']}>
