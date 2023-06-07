@@ -1,12 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 import { cheapest, fastest, optimal } from '../../redux/actions/ticketSortingActions'
-import { ITicketSortingState } from '../../models'
+import { ITicketSortingReducerState } from '../../models'
 
 import classes from './TicketSorting.module.scss'
 
 export function TicketSorting() {
-  const selectedParameter = useSelector((state: ITicketSortingState) => state.ticketSortingReducer.parameterTicket)
+  const selectedParameter = useSelector(
+    (state: ITicketSortingReducerState) => state.ticketSortingReducer.parameterTicket
+  )
 
   const dispatch = useDispatch()
 

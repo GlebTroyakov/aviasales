@@ -22,15 +22,14 @@ export interface IGetTicketsErrorAction {
 
 export type IGetTicketsActionAll = IGetTicketsAction | IGetTicketsErrorAction | IGetTicketsLoadingAction
 
-export interface ITicketSortingState {
-  ticketSortingReducer?: any
-  transferFilterReducer?: any
-}
-
-export interface IGetTicketState {
+export interface IGetTicketInitialState {
   error: string | null
   loading: boolean
   tickets: ITicket[] | []
+}
+
+export interface IGetTicketsReducerState {
+  getTicketReducer: any
 }
 
 // ticketSortingReducer
@@ -39,8 +38,12 @@ export interface ITicketSortingAction {
   type: string
 }
 
-export interface ITicketSortingState {
+export interface ITicketSortingInitialState {
   parameterTicket: string
+}
+
+export interface ITicketSortingReducerState {
+  ticketSortingReducer: any
 }
 
 // TransferFilterReducer
@@ -49,8 +52,12 @@ export interface ITransferFilterAction {
   type: string
 }
 
-export interface ITransferFilterState {
+export interface ITransferFilterInitialState {
   countTransfers: string[]
+}
+
+export interface ITransferFilterReducerState {
+  transferFilterReducer: any
 }
 
 // Other
@@ -65,6 +72,6 @@ interface IInfoTickets {
 
 export interface ITicket {
   carrier: string
-  prise: number
+  price: number
   segments: IInfoTickets[]
 }

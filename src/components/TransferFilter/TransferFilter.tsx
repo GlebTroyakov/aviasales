@@ -7,12 +7,14 @@ import {
   twoTransfer,
   threeTransfer,
 } from '../../redux/actions/transferFilterActions'
-import { ITicketSortingState } from '../../models'
+import { ITransferFilterReducerState } from '../../models'
 
 import classes from './TransferFilter.module.scss'
 
 export function TransferFilter() {
-  const selectedTransfer = useSelector((state: ITicketSortingState) => state.transferFilterReducer.countTransfers)
+  const selectedTransfer = useSelector(
+    (state: ITransferFilterReducerState) => state.transferFilterReducer.countTransfers
+  )
   const dispatch = useDispatch()
 
   return (

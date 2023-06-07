@@ -1,12 +1,12 @@
-import { GetTicketsActionTypes, IGetTicketsActionAll, IGetTicketState } from '../../models'
+import { GetTicketsActionTypes, IGetTicketsActionAll, IGetTicketInitialState } from '../../models'
 
-const initialState: IGetTicketState = {
+const initialState: IGetTicketInitialState = {
   error: null,
-  loading: false,
+  loading: true,
   tickets: [],
 }
 
-export const getTicketReducer = (state = initialState, action: IGetTicketsActionAll): IGetTicketState => {
+export const getTicketReducer = (state = initialState, action: IGetTicketsActionAll): IGetTicketInitialState => {
   switch (action.type) {
     case GetTicketsActionTypes.GET_TICKETS_ERROR:
       return { ...state, loading: false, error: action.payload }
