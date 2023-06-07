@@ -1,0 +1,1 @@
+export const ADD_FIVE_TICKETS = 'ADD_FIVE_TICKETS'

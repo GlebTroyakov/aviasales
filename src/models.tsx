@@ -60,6 +60,20 @@ export interface ITransferFilterReducerState {
   transferFilterReducer: any
 }
 
+// more five tickets
+
+export interface IMoreFiveTicketsInitialState {
+  countTickets: number
+}
+
+export interface IMoreFiveTicketsInitialAction {
+  type: string
+}
+
+export interface IMoreFiveTicketsReducerState {
+  getFiveTicketReducer: any
+}
+
 // Other
 
 interface IInfoTickets {
