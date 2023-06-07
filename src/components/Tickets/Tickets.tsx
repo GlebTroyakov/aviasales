@@ -1,9 +1,15 @@
+// import { TicketServices } from '../../services/TicketServices'
+import { Loading } from '../Loading'
 import { ShowMore } from '../ShowMore'
 import { Ticket } from '../Ticket/Ticket'
 
 import classes from './Tickets.module.scss'
 
 export function Tickets() {
+  // const res = TicketServices().getSearchId()
+  // // console.log(res)
+  // res.then((results) => console.log('res', results))
+
   const ticketsTampltates = [
     {
       price: '13 400 Р',
@@ -53,6 +59,7 @@ export function Tickets() {
 
   return (
     <div className={classes.tickets}>
+      <Loading />
       {tickets}
       <ShowMore />
     </div>
