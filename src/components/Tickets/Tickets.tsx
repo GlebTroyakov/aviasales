@@ -11,6 +11,7 @@ import {
   IGetTicketsReducerState,
   IMoreFiveTicketsReducerState,
   ITicket,
+  ITicketSortingReducerState,
   ITransferFilterReducerState,
 } from '../../models'
 import { getTicketLoading, getTicketTickets, getTicketError } from '../../redux/actions/getTicketsActions'
@@ -22,6 +23,9 @@ export function Tickets() {
   const { countTickets } = useSelector((state: IMoreFiveTicketsReducerState) => state.getFiveTicketReducer)
   const selectedTransfer = useSelector(
     (state: ITransferFilterReducerState) => state.transferFilterReducer.countTransfers
+  )
+  const selectedParameter = useSelector(
+    (state: ITicketSortingReducerState) => state.ticketSortingReducer.parameterTicket
   )
   const dispatch = useDispatch()
 
@@ -38,14 +42,6 @@ export function Tickets() {
       }
     })
   }, [])
-
-  // useEffect(() => {
-  //   console.log('loading :', loading)
-  // }, [loading])
-
-  // useEffect(() => {
-  //   console.log('tickets :', tickets)
-  // }, [tickets])
 
   const parameterTransferFilter: number[] = []
   for (let parameter of selectedTransfer) {
@@ -78,9 +74,13 @@ export function Tickets() {
     selectedTickets = []
   }
 
-  // console.log('selectedTickets :', selectedTickets)
-  // console.log('selectedTransfer :', selectedTransfer)
-  // console.log('parameterTransferFilter :', parameterTransferFilter)
+  if (selectedParameter === 'cheapest') {
+    selectedTickets.sort((a: ITicket, b: ITicket) => (a.price > b.price ? 1 : -1))
+  } else if (selectedParameter === 'fastest') {
+    selectedTickets.sort((a: any, b: any) => (a.segments[0].duration > b.segments[0].duration ? 1 : -1))
+  } else {
+    selectedTickets.sort((a: any, b: any) => (a.segments[0].stops.length > b.segments[0].stops.length ? 1 : -1))
+  }
 
   const showErrorFetch = error && <ErrorFetch />
 
