@@ -4,10 +4,15 @@ export enum GetTicketsActionTypes {
   GET_TICKETS_ERROR = 'GET_TICKETS_ERROR',
   GET_TICKETS_LOADING = 'GET_TICKETS_LOADING',
   GET_TICKETS = 'GET_TICKETS',
+  GET_TICKETS_STOP = 'GET_TICKETS_STOP',
 }
 
 export interface IGetTicketsLoadingAction {
   type: GetTicketsActionTypes.GET_TICKETS_LOADING
+}
+
+export interface IGetTicketsStopAction {
+  type: GetTicketsActionTypes.GET_TICKETS_STOP
 }
 
 export interface IGetTicketsAction {
@@ -20,12 +25,17 @@ export interface IGetTicketsErrorAction {
   payload: string | null
 }
 
-export type IGetTicketsActionAll = IGetTicketsAction | IGetTicketsErrorAction | IGetTicketsLoadingAction
+export type IGetTicketsActionAll =
+  | IGetTicketsAction
+  | IGetTicketsErrorAction
+  | IGetTicketsLoadingAction
+  | IGetTicketsStopAction
 
 export interface IGetTicketInitialState {
   error: string | null
   loading: boolean
   tickets: ITicket[] | []
+  stop: boolean
 }
 
 export interface IGetTicketsReducerState {
@@ -88,4 +98,20 @@ export interface ITicket {
   carrier: string
   price: number
   segments: IInfoTickets[]
+}
+
+// get search id
+
+export interface IGetSearchIdActions {
+  type: string
+  payload: string
+}
+
+export interface IGetSearchIdInitialState {
+  searchId: string
+  errorSearchId: string
+}
+
+export interface IGetSearchIdReducerState {
+  getSearchIdReducer: any
 }

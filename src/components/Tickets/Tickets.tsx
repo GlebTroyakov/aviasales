@@ -8,18 +8,25 @@ import { Loading } from '../Loading'
 import { ShowMore } from '../ShowMore'
 import { Ticket } from '../Ticket/Ticket'
 import {
+  IGetSearchIdReducerState,
   IGetTicketsReducerState,
   IMoreFiveTicketsReducerState,
   ITicket,
   ITicketSortingReducerState,
   ITransferFilterReducerState,
 } from '../../models'
-import { getTicketLoading, getTicketTickets, getTicketError } from '../../redux/actions/getTicketsActions'
+import {
+  getTicketLoading,
+  getTicketTickets,
+  getTicketError,
+  getTicketStop,
+} from '../../redux/actions/getTicketsActions'
+import { getSearchId, getSearchIdError } from '../../redux/actions/getSearchIdActions'
 
 import classes from './Tickets.module.scss'
 
 export function Tickets() {
-  const { loading, tickets, error } = useSelector((state: IGetTicketsReducerState) => state.getTicketReducer)
+  const { loading, tickets, error, stop } = useSelector((state: IGetTicketsReducerState) => state.getTicketReducer)
   const { countTickets } = useSelector((state: IMoreFiveTicketsReducerState) => state.getFiveTicketReducer)
   const selectedTransfer = useSelector(
     (state: ITransferFilterReducerState) => state.transferFilterReducer.countTransfers
@@ -27,21 +34,60 @@ export function Tickets() {
   const selectedParameter = useSelector(
     (state: ITicketSortingReducerState) => state.ticketSortingReducer.parameterTicket
   )
+  const resultsSearchId = useSelector((state: IGetSearchIdReducerState) => state.getSearchIdReducer)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
     const res = TicketServices().getSearchId()
     res.then((results) => {
-      dispatch(getTicketLoading())
-      if (results.tickets) {
-        dispatch(getTicketTickets(results.tickets.tickets))
-        dispatch(getTicketError(null))
-      }
-      if (results.error) {
-        dispatch(getTicketError(results.error))
+      if (results.errorSearchId) {
+        dispatch(getSearchIdError(results.errorSearchId))
+      } else {
+        dispatch(getSearchId(results.searchId))
       }
     })
   }, [])
+
+  useEffect(() => {
+    console.log('ID :', resultsSearchId)
+    const ticketsFirst = TicketServices().fetchTickets(resultsSearchId.searchId)
+    ticketsFirst.then((results) => {
+      if (results) {
+        if (results.tickets) {
+          dispatch(getTicketTickets(results.tickets.tickets))
+          dispatch(getTicketError(null))
+          if (results.tickets.stop) {
+            dispatch(getTicketStop())
+          }
+        }
+        if (results.error) {
+          dispatch(getTicketError(results.error))
+        }
+      }
+    })
+  }, [resultsSearchId])
+
+  useEffect(() => {
+    if (!stop) {
+      const newTickets = TicketServices().fetchTickets(resultsSearchId.searchId)
+      newTickets.then((results) => {
+        if (results.tickets) {
+          if (!results.tickets.stop) {
+            dispatch(getTicketTickets(results.tickets.tickets))
+            dispatch(getTicketError(null))
+
+            if (results.error) {
+              dispatch(getTicketError(results.error))
+            }
+          } else {
+            dispatch(getTicketStop())
+            dispatch(getTicketLoading())
+          }
+        }
+      })
+    }
+  }, [tickets])
 
   const parameterTransferFilter: number[] = []
   for (let parameter of selectedTransfer) {

@@ -4,18 +4,22 @@ const initialState: IGetTicketInitialState = {
   error: null,
   loading: true,
   tickets: [],
+  stop: false,
 }
 
 export const getTicketReducer = (state = initialState, action: IGetTicketsActionAll): IGetTicketInitialState => {
   switch (action.type) {
     case GetTicketsActionTypes.GET_TICKETS_ERROR:
-      return { ...state, loading: false, error: action.payload }
+      return { ...state, error: action.payload }
 
     case GetTicketsActionTypes.GET_TICKETS_LOADING:
-      return { ...state, loading: !state.loading }
+      return { ...state, loading: false }
 
     case GetTicketsActionTypes.GET_TICKETS:
-      return { ...state, loading: false, tickets: action.payload }
+      return { ...state, tickets: [...state.tickets, ...action.payload] }
+
+    case GetTicketsActionTypes.GET_TICKETS_STOP:
+      return { ...state, stop: true }
 
     default:
       return state

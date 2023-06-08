@@ -12,3 +12,7 @@ export const getTicketLoading = () => {
 export const getTicketTickets = (payload: ITicket[] | []) => {
   return { type: GetTicketsActionTypes.GET_TICKETS, payload }
 }
+
+export const getTicketStop = () => {
+  return { type: GetTicketsActionTypes.GET_TICKETS_ERROR }
+}

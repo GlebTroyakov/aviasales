@@ -1,0 +1,3 @@
+export const GET_SEARCH_ID = 'GET_SEARCH_ID'
+
+export const GET_SEARCH_ID_ERROR = 'GET_SEARCH_ID_ERROR'
