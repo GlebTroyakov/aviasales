@@ -80,7 +80,9 @@ export function Tickets() {
   } else if (selectedParameter === 'fastest') {
     selectedTickets.sort((a: any, b: any) => (a.segments[0].duration > b.segments[0].duration ? 1 : -1))
   } else {
-    selectedTickets.sort((a: any, b: any) => (a.segments[0].stops.length > b.segments[0].stops.length ? 1 : -1))
+    selectedTickets.sort((a: any, b: any) =>
+      a.segments[0].duration > b.segments[0].duration || a.price > b.price ? 1 : -1
+    )
   }
 
   const showErrorFetch = error && <ErrorFetch />
