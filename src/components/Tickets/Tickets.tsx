@@ -75,7 +75,7 @@ export function Tickets() {
       return parameterTransferFilter.indexOf(ticket.segments[0].stops.length) !== -1
     })
   } else {
-    selectedTickets = tickets
+    selectedTickets = []
   }
 
   // console.log('selectedTickets :', selectedTickets)
@@ -96,7 +96,7 @@ export function Tickets() {
       {showLoading}
       {showErrorFetch}
       {resTickets}
-      {tickets.length >= countTickets && <ShowMore />}
+      {tickets.length >= countTickets && parameterTransferFilter.length > 0 && <ShowMore />}
     </div>
   )
 }
