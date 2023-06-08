@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { nanoid } from 'nanoid'
 
 import { ErrorFetch } from '../ErrorFetch'
-import { TicketServices } from '../../services/TicketServices'
 import { Loading } from '../Loading'
 import { ShowMore } from '../ShowMore'
 import { Ticket } from '../Ticket/Ticket'
@@ -15,13 +14,8 @@ import {
   ITicketSortingReducerState,
   ITransferFilterReducerState,
 } from '../../models'
-import {
-  getTicketLoading,
-  getTicketTickets,
-  getTicketError,
-  getTicketStop,
-} from '../../redux/actions/getTicketsActions'
-import { getSearchId, getSearchIdError } from '../../redux/actions/getSearchIdActions'
+import { getTickets } from '../../redux/actions/getTicketsActions'
+import { getSearchIdAsync } from '../../redux/actions/getSearchIdActions'
 
 import classes from './Tickets.module.scss'
 
@@ -39,55 +33,16 @@ export function Tickets() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const res = TicketServices().getSearchId()
-    res.then((results) => {
-      if (results.errorSearchId) {
-        dispatch(getSearchIdError(results.errorSearchId))
-      } else {
-        dispatch(getSearchId(results.searchId))
-      }
-    })
+    // @ts-ignore
+    dispatch(getSearchIdAsync())
   }, [])
 
   useEffect(() => {
-    console.log('ID :', resultsSearchId)
-    const ticketsFirst = TicketServices().fetchTickets(resultsSearchId.searchId)
-    ticketsFirst.then((results) => {
-      if (results) {
-        if (results.tickets) {
-          dispatch(getTicketTickets(results.tickets.tickets))
-          dispatch(getTicketError(null))
-          if (results.tickets.stop) {
-            dispatch(getTicketStop())
-          }
-        }
-        if (results.error) {
-          dispatch(getTicketError(results.error))
-        }
-      }
-    })
-  }, [resultsSearchId])
-
-  useEffect(() => {
-    if (!stop) {
-      const newTickets = TicketServices().fetchTickets(resultsSearchId.searchId)
-      newTickets.then((results) => {
-        if (results.tickets) {
-          if (!results.tickets.stop) {
-            dispatch(getTicketTickets(results.tickets.tickets))
-            dispatch(getTicketError(null))
-
-            if (results.error) {
-              dispatch(getTicketError(results.error))
-            }
-          } else {
-            dispatch(getTicketStop())
-            dispatch(getTicketLoading())
-          }
-        }
-      })
+    if (!stop && resultsSearchId.searchId) {
+      // @ts-ignore
+      dispatch(getTickets(resultsSearchId.searchId))
     }
-  }, [tickets])
+  }, [resultsSearchId])
 
   const parameterTransferFilter: number[] = []
   for (let parameter of selectedTransfer) {
