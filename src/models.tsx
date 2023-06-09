@@ -36,6 +36,7 @@ export interface IGetTicketInitialState {
   loading: boolean
   tickets: ITicket[] | []
   stop: boolean
+  loadingPercentage: number
 }
 
 export interface IGetTicketsReducerState {

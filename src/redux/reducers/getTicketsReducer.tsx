@@ -5,6 +5,7 @@ const initialState: IGetTicketInitialState = {
   loading: true,
   tickets: [],
   stop: false,
+  loadingPercentage: 0,
 }
 
 export const getTicketReducer = (state = initialState, action: IGetTicketsActionAll): IGetTicketInitialState => {
@@ -16,6 +17,13 @@ export const getTicketReducer = (state = initialState, action: IGetTicketsAction
       return { ...state, loading: false }
 
     case GetTicketsActionTypes.GET_TICKETS:
+      if (state.loadingPercentage < 90) {
+        return {
+          ...state,
+          tickets: [...state.tickets, ...action.payload],
+          loadingPercentage: state.loadingPercentage + 7,
+        }
+      }
       return { ...state, tickets: [...state.tickets, ...action.payload] }
 
     case GetTicketsActionTypes.GET_TICKETS_STOP:

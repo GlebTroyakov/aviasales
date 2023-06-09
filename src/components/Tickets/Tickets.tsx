@@ -21,7 +21,9 @@ import { getSearchIdAsync } from '../../redux/actions/getSearchIdActions'
 import classes from './Tickets.module.scss'
 
 export function Tickets() {
-  const { loading, tickets, error, stop } = useSelector((state: IGetTicketsReducerState) => state.getTicketReducer)
+  const { loading, tickets, error, stop, loadingPercentage } = useSelector(
+    (state: IGetTicketsReducerState) => state.getTicketReducer
+  )
   const { countTickets } = useSelector((state: IMoreFiveTicketsReducerState) => state.getFiveTicketReducer)
   const selectedTransfer = useSelector(
     (state: ITransferFilterReducerState) => state.transferFilterReducer.countTransfers
@@ -86,7 +88,7 @@ export function Tickets() {
 
   const showErrorFetch = error && <ErrorFetch />
 
-  const showLoading = loading && <Loading />
+  const showLoading = loading && <Loading loadingPercentage={loadingPercentage} />
   const fiveTickets = selectedTickets.slice(0, countTickets)
 
   const resTickets = fiveTickets.map((ticket: ITicket) => {
@@ -97,7 +99,8 @@ export function Tickets() {
     <div className={classes.tickets}>
       {showLoading}
       {showErrorFetch}
-      {selectedTickets.length > 0 ? resTickets : <NotTickets />}
+      {parameterTransferFilter.length === 0 && <NotTickets />}
+      {resTickets}
       {tickets.length >= countTickets && parameterTransferFilter.length > 0 && <ShowMore />}
     </div>
   )
