@@ -6,6 +6,7 @@ import { ErrorFetch } from '../ErrorFetch'
 import { Loading } from '../Loading'
 import { ShowMore } from '../ShowMore'
 import { Ticket } from '../Ticket/Ticket'
+import { NotTickets } from '../NotTickets'
 import {
   IGetSearchIdReducerState,
   IGetTicketsReducerState,
@@ -96,7 +97,7 @@ export function Tickets() {
     <div className={classes.tickets}>
       {showLoading}
       {showErrorFetch}
-      {resTickets}
+      {selectedTickets.length > 0 ? resTickets : <NotTickets />}
       {tickets.length >= countTickets && parameterTransferFilter.length > 0 && <ShowMore />}
     </div>
   )
