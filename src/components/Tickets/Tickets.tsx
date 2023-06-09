@@ -33,13 +33,11 @@ export function Tickets() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // @ts-ignore
     dispatch(getSearchIdAsync())
   }, [])
 
   useEffect(() => {
     if (!stop && resultsSearchId.searchId) {
-      // @ts-ignore
       dispatch(getTickets(resultsSearchId.searchId))
     }
   }, [resultsSearchId])

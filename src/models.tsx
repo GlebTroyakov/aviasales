@@ -42,6 +42,11 @@ export interface IGetTicketsReducerState {
   getTicketReducer: any
 }
 
+export interface IGetTicketUniversalAction {
+  type: string
+  payload?: string | [] | ITicket[] | null
+}
+
 // ticketSortingReducer
 
 export interface ITicketSortingAction {
@@ -104,12 +109,12 @@ export interface ITicket {
 
 export interface IGetSearchIdActions {
   type: string
-  payload: string
+  payload?: string
 }
 
 export interface IGetSearchIdInitialState {
-  searchId: string
-  errorSearchId: string
+  searchId: string | undefined
+  errorSearchId: string | undefined
 }
 
 export interface IGetSearchIdReducerState {

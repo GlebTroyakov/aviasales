@@ -1,6 +1,6 @@
-// import { Dispatch } from 'redux'
+import { Dispatch } from 'redux'
 
-import { ITicket } from '../../models'
+import { IGetTicketUniversalAction, ITicket } from '../../models'
 import { GetTicketsActionTypes } from '../../models'
 import { TicketServices } from '../../services/TicketServices'
 
@@ -22,8 +22,8 @@ export const getTicketStop = () => {
   return { type: GetTicketsActionTypes.GET_TICKETS_ERROR }
 }
 
-export function getTickets(id: string) {
-  return async (dispatch: any) => {
+export function getTickets(id: string): any {
+  return async (dispatch: Dispatch<IGetTicketUniversalAction>) => {
     try {
       const res = await aviasalesAPI.fetchTickets(id)
 

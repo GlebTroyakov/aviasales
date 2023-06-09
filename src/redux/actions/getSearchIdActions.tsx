@@ -1,5 +1,8 @@
+import { Dispatch } from 'redux'
+
 import { TicketServices } from '../../services/TicketServices'
 import { GET_SEARCH_ID, GET_SEARCH_ID_ERROR } from '../types/getSearchIdTypes'
+import { IGetSearchIdActions } from '../../models'
 
 const aviasalesAPI = TicketServices()
 
@@ -10,9 +13,8 @@ export const getSearchId = (payload: string) => {
 export const getSearchIdError = (payload: string) => {
   return { type: GET_SEARCH_ID_ERROR, payload: payload }
 }
-
-export function getSearchIdAsync() {
-  return async (dispatch: any) => {
+export function getSearchIdAsync(): any {
+  return async (dispatch: Dispatch<IGetSearchIdActions>) => {
     try {
       const res = await aviasalesAPI.getSearchId()
 

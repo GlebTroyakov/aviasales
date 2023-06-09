@@ -53,7 +53,8 @@
     "import/named": "off",
     "class-methods-use-this": "off",
     "default-param-last": "off",
-    "@typescript-eslint/default-param-last": "off"
+    "@typescript-eslint/default-param-last": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "import/resolver": {
