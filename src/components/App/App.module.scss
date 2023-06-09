@@ -3,7 +3,7 @@
 .app {
   box-sizing: border-box;
   margin: 0 auto;
-  width: 950px;
+  width: 100%;
   min-height: 100vh;
   background-color: $back-blue;
   display: flex;
@@ -12,5 +12,5 @@
 
 .app-logo {
   width: 80px;
-  margin: 50px 450px 20px;
+  margin: 50px auto 20px;
 }

@@ -3,7 +3,7 @@
 .ticket {
   box-sizing: border-box;
   height: 184px;
-  width: 502px;
+  width: 400px;
   border-radius: 5px;
   background-color: $back-white;
   margin-bottom: 20px;
@@ -44,4 +44,10 @@
   font-weight: 600;
   font-size: 14px;
   padding: 0 5px;
+}
+
+@media (min-width: 768px) {
+  .ticket {
+    width: 502px;
+  }
 }
