@@ -29,6 +29,7 @@ export function getTickets(id: string): any {
 
       if (!res) {
         dispatch(getTickets(id))
+        return
       }
       if (!res.tickets.stop && !res.error) {
         dispatch(getTicketTickets(res.tickets.tickets))

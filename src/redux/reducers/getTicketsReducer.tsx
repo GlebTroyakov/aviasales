@@ -21,7 +21,7 @@ export const getTicketReducer = (state = initialState, action: IGetTicketsAction
         return {
           ...state,
           tickets: [...state.tickets, ...action.payload],
-          loadingPercentage: state.loadingPercentage + 7,
+          loadingPercentage: state.loadingPercentage + 15,
         }
       }
       return { ...state, tickets: [...state.tickets, ...action.payload] }
