@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import type {} from 'redux-thunk/extend-redux'
 import { useEffect } from 'react'
 import { nanoid } from 'nanoid'
 

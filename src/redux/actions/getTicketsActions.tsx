@@ -22,7 +22,7 @@ export const getTicketStop = () => {
   return { type: GetTicketsActionTypes.GET_TICKETS_ERROR }
 }
 
-export function getTickets(id: string): any {
+export function getTickets(id: string) {
   return async (dispatch: Dispatch<IGetTicketUniversalAction>) => {
     try {
       const res = await aviasalesAPI.fetchTickets(id)

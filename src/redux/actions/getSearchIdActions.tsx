@@ -13,7 +13,7 @@ export const getSearchId = (payload: string) => {
 export const getSearchIdError = (payload: string) => {
   return { type: GET_SEARCH_ID_ERROR, payload: payload }
 }
-export function getSearchIdAsync(): any {
+export function getSearchIdAsync() {
   return async (dispatch: Dispatch<IGetSearchIdActions>) => {
     try {
       const res = await aviasalesAPI.getSearchId()
